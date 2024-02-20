@@ -22,6 +22,7 @@ function request(method) {
       requestOptions.body = JSON.stringify(body);
     }
     const response = await fetch(composeUrl, requestOptions);
+    console.log(response);
     return handleResponse(response);
   };
 }
@@ -32,12 +33,11 @@ function authHeader() {
 
   // return auth header with jwt if user is logged in and request is to the api url
   const { user } = JSON.parse(localStorage.getItem('auth'));
-  const isLoggedIn = JSON.parse(localStorage.getItem('isLoggedIn'));
+  const token = user.accessToken; // JSON.parse(user.accessToken);
+  console.log('token', token);
 
-  console.log('isLoggedIn', isLoggedIn);
-
-  if (isLoggedIn) {
-    return { Authorization: `Bearer ${user.accessToken}` };
+  if (token) {
+    return { Authorization: `Bearer ${token}` };
   } else {
     return {};
   }
