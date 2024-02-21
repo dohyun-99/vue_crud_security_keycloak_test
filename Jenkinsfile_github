@@ -3,8 +3,8 @@ def gitBranch = 'master'
 def docker_registry = "ghcr.io"  
 
 // 본인 이미지 사용
-def imageName = "ghcr.io/dohyun-99/vue_crud_security"
-def git_ops_name = "frontend-gitops-kust"
+def imageName = "ghcr.io/dohyun-99/vue_crud_security_keycloak_test"
+def git_ops_name = "frontend-keycloak-gitops"
 // 본인 Namespace
 def P_NAMESPACE = "default"
 // 본인 slave pvc
